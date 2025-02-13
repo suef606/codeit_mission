@@ -108,7 +108,7 @@ src/
 ## 배포
 
 애플리케이션은 Vercel을 통해 배포되며, 다음 URL에서 접근할 수 있습니다:
-https://subao-todo-app.vercel.app/
+https://subao-todolist.vercel.app/
 
 ## 라이선스
 
