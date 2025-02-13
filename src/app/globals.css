@@ -1,12 +1,15 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 루트 변수 설정 */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* 다크모드 설정 (필요한 경우) */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -14,14 +17,86 @@
   }
 }
 
+/* 폰트 설정 */
+@font-face {
+  font-family: 'NanumSquare';
+  src: url('/fonts/NanumSquareR.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  src: url('/fonts/NanumSquareB.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 기본 body 설정 */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'NanumSquare', sans-serif;
 }
 
+/* 유틸리티 클래스 */
 @layer utilities {
+  /* 텍스트 밸런스 설정 */
   .text-balance {
     text-wrap: balance;
   }
+
+  /* 기본 텍스트 스타일 */
+  .text-default {
+    @apply font-nanumSquare text-base font-normal text-slate-800;
+  }
+
+  /* 버튼 텍스트 스타일 */
+  .text-button {
+    @apply font-nanumSquare text-base font-bold text-center;
+  }
+
+  /* 상세 페이지 체크리스트 제목 스타일 */
+  .text-detail-title {
+    @apply font-nanumSquare text-lg font-bold text-slate-900 text-center underline;
+  }
+
+  /* 입력 필드 텍스트 스타일 */
+  .text-input {
+    @apply font-nanumSquare text-base font-normal text-center;
+  }
+
+  /* 체크리스트 아이템 텍스트 스타일 */
+  .text-checklist {
+    @apply font-nanumSquare text-base font-normal text-slate-800;
+  }
+
+  /* 메모 텍스트 스타일 */
+  .text-memo {
+    @apply font-nanumSquare text-base font-normal text-slate-800 text-center;
+  }
+
+  /* 버튼 베이스 스타일 */
+  .btn-base {
+    @apply h-[52px] flex-shrink-0 rounded-[24px] border-2 border-slate-900 
+           inline-flex items-center justify-center gap-1;
+  }
+
+  /* 입력 필드 베이스 스타일 */
+  .input-base {
+    @apply h-[52.5px] flex-shrink-0 rounded-[24px] border-2 border-slate-900 
+           bg-slate-900 text-input placeholder:text-slate-500
+           focus:outline-none focus:ring-2 focus:ring-slate-900;
+  }
+
+  /* 체크리스트 아이템 베이스 스타일 */
+  .checklist-base {
+    @apply flex items-center gap-2 rounded-[27px] border-2 border-slate-900 
+           cursor-pointer;
+  }
+
+    /* 빈 상태 텍스트 스타일 */
+    .text-empty {
+      @apply font-nanumSquare text-base font-bold text-slate-400 text-center;
+    }
 }
